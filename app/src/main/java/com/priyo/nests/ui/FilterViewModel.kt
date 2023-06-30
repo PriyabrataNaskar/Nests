@@ -3,9 +3,14 @@ package com.priyo.nests.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.priyo.nests.core.mvicore.IModel
 import com.priyo.nests.core.result.UiResult
 import com.priyo.nests.corenetwork.ERROR.SOMETHING_WENT_WRONG
+import com.priyo.nests.data.worker.SyncDatabaseWorker
 import com.priyo.nests.domain.model.FacilityOption
 import com.priyo.nests.domain.model.FacilityType
 import com.priyo.nests.domain.model.Filters
@@ -21,11 +26,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @HiltViewModel
 class FilterViewModel @Inject constructor(
     private val fetchFiltersUseCase: FetchFiltersUseCase,
+    private val workManager: WorkManager,
 ) : ViewModel(), IModel<FilterState, FilterIntent, FilterEffect> {
 
     override val intents: Channel<FilterIntent> =
@@ -44,6 +51,21 @@ class FilterViewModel @Inject constructor(
 
     init {
         handleIntent()
+        syncDatabase()
+    }
+
+    private fun syncDatabase() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+
+        val syncRequest = PeriodicWorkRequestBuilder<SyncDatabaseWorker>(
+            repeatInterval = 1,
+            repeatIntervalTimeUnit = TimeUnit.MINUTES,
+        )
+            .setConstraints(constraints)
+            .build()
+        workManager.enqueue(syncRequest)
     }
 
     override fun handleIntent() {
