@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="black_0">#000000</color>
+    <color name="black_20">#1C1C1C</color>
+    <color name="black_30">#212121</color>
+    <color name="black_40">#2D2D2D</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_50">#FFFFFFFF</color>
+    <color name="amber_yellow_50">#F8BA28</color>
+    <color name="grey_30">#D9D9D9</color>
+
+    <color name="textHeading">@color/black_30</color>
+    <color name="textSubHeading">@color/black_30</color>
+    <color name="textBody">@color/black_20</color>
+    <color name="textCaption">@color/black_40</color>
+</resources>
