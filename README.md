@@ -5,6 +5,8 @@ An MVI + Clean architecture-based Android App in android, developed with Kotlin,
 
 ### You can view the design in [Figma Design](https://www.figma.com/file/uJSGVXUBOEVYccUdjSUK4v/Nests?type=design&node-id=1%3A2&mode=design&t=gvToaBRmCxA10KM0-1)
 
+### See the video [here](https://drive.google.com/file/d/1nlcZkBY419L--PjF7CS6RSX8nmphzf6S/view?usp=drivesdk)
+
 ### I'm using 
 
 - Clean Architecture with MVI
