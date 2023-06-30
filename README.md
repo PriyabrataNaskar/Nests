@@ -7,6 +7,9 @@ An MVI + Clean architecture-based Android App in android, developed with Kotlin,
 
 ### See the video [here](https://drive.google.com/file/d/1nlcZkBY419L--PjF7CS6RSX8nmphzf6S/view?usp=drivesdk)
 
+### Screenshots from the App here: ![image](https://github.com/PriyabrataNaskar/Nests/assets/61928142/11cdcd7c-762e-4999-a9ca-35015a845220)
+
+
 ### I'm using 
 
 - Clean Architecture with MVI
