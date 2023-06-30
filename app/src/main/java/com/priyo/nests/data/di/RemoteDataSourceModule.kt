@@ -13,6 +13,6 @@ abstract class RemoteDataSourceModule {
 
     @Binds
     abstract fun bindFilterDataSourceProviders(
-        addressRemoteDataSource: FilterRemoteDataSource,
+        remoteDataSource: FilterRemoteDataSource,
     ): IFilterRemoteDataSource
 }
